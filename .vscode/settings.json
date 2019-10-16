@@ -1,0 +1,6 @@
+{
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.pythonPath": "/Users/rohankulkarni/.virtualenvs/twitoff-s8TJiuxN/bin/python",
+    "python.linting.pylintEnabled": true
+}
