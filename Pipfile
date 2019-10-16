@@ -10,6 +10,13 @@ autopep8 = "*"
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
+scikit-learn = "*"
+numpy = "*"
+tweepy = "*"
+requests = "*"
+basilica = "*"
+python-dotenv = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7"
