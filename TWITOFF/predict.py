@@ -18,8 +18,8 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
         user1 = User.query.filter(User.name == user1_name).one()
         user2 = User.query.filter(User.name == user2_name).one()
         
-        user1_embeddings = np.array([tweet.embeddings for tweet in user1.tweets])
-        user2_embeddings = np.array([tweet.embeddings for tweet in user2.tweets])
+        user1_embeddings = np.array([tweet.embedding for tweet in user1.tweets])
+        user2_embeddings = np.array([tweet.embedding for tweet in user2.tweets])
 
         embeddings = np.vstack([user1_embeddings, user2_embeddings])
         labels = np.concatenate([
@@ -30,6 +30,6 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
         log_reg = LogisticRegression().fit(embeddings, labels)
         cache and cache.set(user_set, pickle.dumps(log_reg))
 
-    tweet_embeddings = BASILICA.embed_sentence(tweet_text, model='twitter')
+    tweet_embedding = BASILICA.embed_sentence(tweet_text, model='twitter')
 
-    return log_reg.predict(np.array(tweet_embeddings).reshape(1, -1))
+    return log_reg.predict(np.array(tweet_embedding).reshape(1, -1))
